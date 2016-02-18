@@ -31,6 +31,9 @@ class BinaryTree:
 def printBinaryTree(inputTree):
     printBinaryTreeHelper(inputTree, 0)
     
+'''
+Determine if a tree is a binary tree
+'''
 def determine_if_bst(input_tree, min, max):
     if (input_tree is None):
         return True;
@@ -38,7 +41,10 @@ def determine_if_bst(input_tree, min, max):
         return False;
     else:
         return determine_if_bst(input_tree.left_child, min, input_tree.value) and determine_if_bst(input_tree.right_child, input_tree.value, max);
-       
+
+'''
+Print a tree in order.
+'''    
 def printInOrder(input_tree):
     if input_tree is None:
         return None
