@@ -17,7 +17,6 @@ class BinaryTreeNode:
         
     
 def constructCore(pre_order, in_order):
-    print str(pre_order) + ", " + str(in_order)
     if (pre_order == [] and pre_order == in_order):
         return
     rootValue = pre_order[0]
@@ -33,7 +32,6 @@ def constructCore(pre_order, in_order):
     while(cnt < len(in_order) and in_val != rootValue):
         cnt += 1
         in_val = in_order[cnt]
-    print cnt
     if cnt == len(in_order)-1 and in_val != rootValue:
         raise Exception("exception was thrown")
     if (cnt > 0):
