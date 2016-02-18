@@ -4,7 +4,6 @@ Created on Dec 12, 2015
 @author: bliu
 '''
 import random
-from test.test_sax import start
 
 #         if (test_in[lptr] > pivot):
 #             while test_in[rptr] > pivot:

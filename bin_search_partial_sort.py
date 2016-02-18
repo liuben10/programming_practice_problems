@@ -19,7 +19,11 @@ def find_min_in_rotated(input):
             low = mid+1
     return -1
 
-
+'''
+problem is given a unimodal array input, i.e. [1, 2, 3, 4, 5, 3, 2, 1], find the maximum number (i.e. the turning number), in O(lg(n)) time.
+Trick is to compare the two numbers on either side of the mid point, and determine if they go from increasing to decreasing, if not,
+then you must compare which side (increasing or decreasing) side they are on and do the binary search accordingly.
+'''
 def turning_number(input):
     high = len(input) - 1
     low = 0

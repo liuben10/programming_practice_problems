@@ -5,7 +5,10 @@ Created on Feb 4, 2016
 '''
 import math
 
-
+'''
+Implement an algorithm to add 1 to a number. Must account for integer overflow so the trick is to use a string
+and do the computation manually.
+'''
 def increment(number_to_print):
     carry_bit = 0
     last_index = len(number_to_print) - 1
