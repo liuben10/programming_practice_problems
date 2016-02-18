@@ -54,6 +54,12 @@ def knapsack_problem(values, weights, W):
 In edit distance, we are attempting to minimize the amount of edits needed to transform
 word_a  into word_b.
 
+Given:
+@word_a = a word.
+@word_b =  a word.
+
+Find the minimum operations needed s.t. we can transform word_a into word_b
+
 The possible operations are:
 
 insertion: insert a letter in word_a.
@@ -111,7 +117,29 @@ def edit_distance(word_a, word_b):
 def print_2d_array_nice(matrix):
     for row in matrix:
         print str(row) + "\n"
+'''
+The make change problem goes like this.
 
+Given:
+@value = value to make change from.
+@coins = set of possible coins with which to make change with.
+
+Produce the minimum set of coins s.t. the sum of the values of the coins = @value.
+
+How this solution works.
+
+This solution works by utilizing the fact that to solve for the optimal value V[i] with i being the value to solve for, I would need to find the minimum of
+V[i-p] + 1 where p is the value of the coin, and V[i-p] is the optimal solution to the ith problem - the current coin in consideration.  In other words,  Given coins 1, 3, 4, To solve for V[6], i must consider
+V[6], I must consider V[5] + 1, V[3] + 1, or V[2] + 1 and find the minimum solution to each of these problems.
+
+To reconstruct the solution, I then mark each coin that we use for each subproblem and then do a traversal backwards following the optimal coin chosen to get the set of coins forming the solution.
+
+An important note to consider.  Given our coins are multiples of each other and not 1, i.e. if our coins are 1, 5, 10 for instance, then the greedy approach will = the dynamic approach.
+The reason for this is because any solution that can be formed by a bunch of 5s, can have them replaced by 10s.  In other words, suppose I had a solution that can be solved with
+n 5s + 1. Then I can always solve this solution by taking n/2 10 + 5s + 1z,  (s goes from 0 to 1, z goes from 0-4) so for instance in the standard set of coins,
+ a greedy solution is also optimal because 5 is a multiple of 10 and 25.
+
+'''
 def make_change(coins, value):
     sub_problems = [0] * value
     coin_solution = [0] * value
