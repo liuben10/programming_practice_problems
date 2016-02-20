@@ -27,15 +27,13 @@ def to_binary_string(decimal):
         n /= 2
     return res
 
+
 def combination(input):
     n = len(input)
-    flip_board = []
     results = []
     for i in range(pow(2, n)):
-        flip_board.append(to_binary_string(i).zfill(n))
-    print flip_board
-    for flip in flip_board:
         combo_str = ""
+        flip = to_binary_string(i)
         for i in range(len(flip)):
             if (flip[i] == "1"):
                 combo_str += input[i]
