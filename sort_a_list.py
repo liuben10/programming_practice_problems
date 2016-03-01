@@ -5,7 +5,7 @@ Created on Feb 20, 2016
 '''
 
 class Node:
-    def __init__(self, value, next):
+    def __init__(self, value, next):  # @ReservedAssignment
         self.value = value
         self.next = next
 
@@ -27,7 +27,7 @@ def getSize(aList):
 def sortAList(aList):
     if (aList.next is None or aList is None):
         return aList
-    
+    beforeFringe = aList
     fringePtr = aList.next
     head = Node(None, aList)
     while (fringePtr is not None):
@@ -37,27 +37,31 @@ def sortAList(aList):
             if (fringePtr.value <= findInPlacePtr.value):
                 tmpPtr = fringePtr.next
                 fringePtr.next = findInPlacePtr
-                findInPlacePtr.next = tmpPtr
+                beforeFringe.next = tmpPtr
                 prevPtr.next = fringePtr
+                fringePtr = tmpPtr
                 break
             else:
                 prevPtr = findInPlacePtr
                 findInPlacePtr = findInPlacePtr.next
         fringePtr = fringePtr.next
+        beforeFringe = fringePtr.next
     return head.next
                 
             
         
 def printAList(aList):
-    iter = aList
+    iter = aList  # @ReservedAssignment
     while (iter is not None):
         print iter.value
-        iter = iter.next
+        iter = iter.next  # @ReservedAssignment
         
 if __name__ == '__main__':
     c = Node(4, None)
-    b = Node(5, c)
-    a = Node(3, b)
-    sortAList(a)
-    printAList(a)
+    d = Node(12, c)
+    b = Node(13, d)
+    a = Node(15, b)
+    x = Node(7, a)
+    sortAList(x)
+    printAList(x)
         

@@ -5,13 +5,18 @@ Created on Jan 31, 2016
 '''
 
 
+'''
+when I xor all the numbers, the non-duplicated number will be whats left.
+'''
 def get_non_duplicate(input):
     value = 0
     for n in input:
         value = value ^ n
     return value
 
-
+'''
+return a list of elements with a certain bit turned on (flag).
+'''
 def get_partition(input, flag):
     partition = []
     for n in input:
@@ -20,6 +25,12 @@ def get_partition(input, flag):
     return partition
 
 
+'''
+get all numbers that aren't duplicated by xoring everything. Separating out into partitions, and then for each of the partitions.
+get the non duplicates.
+
+i.e. if 2 is not duplicated, then I look at the partition with the 2nd bit enabled.
+'''
 def get_all_non_duplicated_numbers(input):
     value = 0
     for n in input:

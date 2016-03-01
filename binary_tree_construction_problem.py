@@ -54,5 +54,5 @@ def construct(pre_order, in_order):
         return constructCore(pre_order, in_order)
     
 if __name__ == '__main__':
-    tree = construct([1, 2, 4, 7, 3, 5, 6, 8], [4, 7, 2, 1, 5, 3, 8, 6])
+    tree = construct([1, 4, 4, 7, 3, 5, 6, 8], [4, 7, 4, 1, 5, 3, 8, 6])
     print_binary_tree(tree, "")

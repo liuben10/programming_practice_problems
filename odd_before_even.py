@@ -9,6 +9,11 @@ def swap(in_arr, src, dest):
     in_arr[dest] = in_arr[src]
     in_arr[src] = tmp
 
+'''
+Pointer starting from the head and another pointer starting from the end. pointer from the end is going until it finds an even,
+pointer from start goes until it finds odd. When both are found, the are swapped. If both pointers meet, then everything has been
+ordered properly.
+'''
 def odd_before_even(test_in):
     p1 = 0
     p2 = len(test_in) - 1

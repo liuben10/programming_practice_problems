@@ -3,7 +3,6 @@ Created on Dec 12, 2015
 
 @author: bliu
 '''
-import math
 
 
 def bin_search(test_in, item):

@@ -58,6 +58,6 @@ def has_path(input, path):
     
     
 if __name__ == '__main__':
-    print has_path([["a", "b", "d"], ["c", "b", "h"]], "abbc")
+    print has_path([["a", "b", "d"], ["b", "b", "b"], ["c", "b", "f"]], "abbc")
         
     

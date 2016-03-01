@@ -57,9 +57,8 @@ def printInOrder(input_tree):
         current_tree = input_tree
         current_parent = input_tree.parent
         while(current_parent is not None and current_tree is current_parent.right_child):
-            temp = current_parent
+            current_tree = current_parent
             current_parent = current_parent.parent
-            current_tree = temp
         return current_tree
     
 

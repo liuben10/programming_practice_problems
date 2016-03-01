@@ -162,5 +162,13 @@ def make_change(coins, value):
         j = j - coin_solution[j]
     print coins
     
+def min_key_presses(keys, frequencies):
+    frequencies.sort()
+    letters = len(frequencies)
+    presses = 0
+    for i in range(letters-1, 0, -1): 
+        j = letters - 1 - i
+        presses += frequencies[i] * (j / keys) + 1
+    return presses
 if __name__ == '__main__':
-    knapsack_problem([3, 4, 2], [2, 5, 4], 10)
+    print min_key_presses(4, [3, 5, 6, 3])

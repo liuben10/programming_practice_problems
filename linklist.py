@@ -35,10 +35,10 @@ class LinkedList:
         self.hp = prev
 
     def print_self(self):
-        iter = self.hp
+        iter = self.hp  # @ReservedAssignment
         while (iter is not None):
             print iter.value
-            iter = iter.next
+            iter = iter.next  # @ReservedAssignment
             
     def add_to_front(self, value):
         node = Node(value)

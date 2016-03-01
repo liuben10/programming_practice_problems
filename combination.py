@@ -21,4 +21,4 @@ def comboCore(str, index, number, result):
     comboCore(str, index+1, number, result)
     
 if __name__ == '__main__':
-    combination("foo")
+    comboCore("foobar", 0, 2, [])

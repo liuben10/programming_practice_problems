@@ -5,7 +5,7 @@ Created on Jan 28, 2016
 '''
 
 
-def permutation(input):
+def permutation(input):  # @ReservedAssignment
     print "input=" + input
     if (len(input) == 1):
         return [input[0]]
@@ -28,12 +28,12 @@ def to_binary_string(decimal):
     return res
 
 
-def combination(input):
+def combination(input):  # @ReservedAssignment
     n = len(input)
     results = []
     for i in range(pow(2, n)):
         combo_str = ""
-        flip = to_binary_string(i)
+        flip = to_binary_string(i)[::-1]
         for i in range(len(flip)):
             if (flip[i] == "1"):
                 combo_str += input[i]
