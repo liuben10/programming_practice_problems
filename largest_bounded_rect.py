@@ -39,7 +39,6 @@ def largest_area_bounded_stack(histogram):
         if (not stack or elem >= histogram[stack[0]]):
             stack.insert(0, i)
         else:
-            
             while (stack and histogram[stack[0]] > elem):
                 height = i if not stack else i - stack[0]
                 print("h=%d" % height)
