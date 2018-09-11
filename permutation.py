@@ -5,16 +5,16 @@ Created on Jan 28, 2016
 '''
 
 
-def permutation(input):  # @ReservedAssignment
-    print "input=" + input
-    if (len(input) == 1):
-        return [input[0]]
+def permutation(testin):   
+    print("testin=" + testin)
+    if (len(testin) == 1):
+        return [testin[0]]
     reslist = []
-    for i in range(len(input)):
-        curchar = input[i]
-        print curchar
-        new_input = input[:i] + input[i+1:]
-        results = permutation(new_input)
+    for i in range(len(testin)):
+        curchar = testin[i]
+        print(curchar)
+        new_testin = testin[:i] + testin[i+1:]
+        results = permutation(new_testin)
         for res in results:
             reslist.append(curchar + res)
     return reslist
@@ -28,17 +28,30 @@ def to_binary_string(decimal):
     return res
 
 
-def combination(input):  # @ReservedAssignment
-    n = len(input)
+def combination(testin):
+    n = len(testin)
     results = []
     for i in range(pow(2, n)):
         combo_str = ""
         flip = to_binary_string(i)[::-1]
         for i in range(len(flip)):
             if (flip[i] == "1"):
-                combo_str += input[i]
+                combo_str += testin[i]
         results.append(combo_str)
     return results
 
+def combination_recursive(test_in):
+    if (len(test_in) == 1):
+        return test_in[0]
+    cur = test_in[0]
+    result = []
+    combinations = combination_recursive(test_in[1:])
+    for combo in combinations:
+        for j in range(len(combo)):
+            result.append(combo[:j] + cur + combo[j:len(combo)])
+    return result
+            
+        
+
 if __name__ == '__main__':
-    print combination("abcdefg")
+    print(combination_recursive("abcdefg"))
