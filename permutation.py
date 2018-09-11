@@ -44,14 +44,14 @@ def combination_recursive(test_in):
     if (len(test_in) == 1):
         return test_in[0]
     cur = test_in[0]
-    result = []
+    result = [cur]
     combinations = combination_recursive(test_in[1:])
+    result.extend(combinations)
     for combo in combinations:
-        for j in range(len(combo)):
-            result.append(combo[:j] + cur + combo[j:len(combo)])
+        result.append(combo + cur)
     return result
             
         
 
 if __name__ == '__main__':
-    print(combination_recursive("abcdefg"))
+    print(combination_recursive("abc"))
