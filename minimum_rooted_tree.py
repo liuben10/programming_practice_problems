@@ -29,8 +29,6 @@ def minimum_rooted_tree(nodes, edges):
             minimum_rooted_nodes.append(i)
     return minimum_rooted_nodes
 
-    
-
 print(minimum_rooted_tree(4, [[1,0], [1,2], [1,3]]))
 print(minimum_rooted_tree(6, [[0, 3], [1, 3], [2, 3], [4, 3], [5, 4]]))
 
