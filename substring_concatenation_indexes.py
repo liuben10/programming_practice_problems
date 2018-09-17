@@ -42,23 +42,47 @@ def treeify(component, component_trees):
 
 def indexes_of_concatenation(stringin, components):
     component_trees = {}
+    componentified = {}
     for component in components:
         treeify(component, component_trees)
+        componentified[component] = 1
 
     curtree = None
     curtreeIdx = 0
     res = []
+    components_eval = {}
+    component_so_far = ""
     for i, c in enumerate(stringin):
         if (c in component_trees and curtree is None):
             curtree = component_trees[c]
-            curtreeIdx = i 
+            curtreeIdx = i
+            component_so_far += c
         elif curtree is not None and c not in curtree.children:
             if (not curtree.children):
-                res.append(curtreeIdx)
-            curtree = None
-            curtreeIdx = -1
+                if (not component_so_far in components_eval):
+                    components_eval[component_so_far] = 1
+                if (components_eval.keys() == componentified.keys()):
+                    res.append(curtreeIdx)
+                    curtree = None
+                    curtreeIdx = -1
+                    component_so_far = ""
+                    components_eval = {}
+                else:
+                    if (c in component_trees):
+                        curtree = component_trees[c]
+                        component_so_far = c
+                    else:
+                        curtree = None
+                        component_so_far = ""
+                        components_eval = {}
+            else:
+                curtree = None
+                curtreeIdx = -1
+                component_so_far = ""
+                components_eval = {}
         elif curtree is not None and c in curtree.children:
             curtree = curtree.children[c]
+            component_so_far += c
     return res
 
-print(indexes_of_concatenation("barfoothefoobarman", ["foo", "bar", "faz"]))
+print(indexes_of_concatenation("barfoofazthefoofazbarman", ["foo", "bar", "faz"]))
