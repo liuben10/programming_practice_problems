@@ -6,13 +6,15 @@ def swap(perm, i, j):
     perm[j] = tmp
     return perm
 
-def find_min(perms):
-    (idx, minimum) = (-1, float('inf'))
+def find_next(elem, perms):
+    pidx = -1
+    nextp = None
     for i, p in enumerate(perms):
-        if p < minimum:
-            idx = i
-            minimum = p
-    return (idx, minimum)
+        if p > elem and (nextp is None or p < nextp) :
+            nextp = p
+            pidx = i
+    return (pidx, nextp)
+        
             
         
 def is_sorted(permutation):
@@ -31,12 +33,13 @@ def next_permutation(permutation):
         if (first > permutation[1] and is_sorted(permutation[1:])):
             return permutation[::-1]
         elif is_sorted(permutation[1:]):
-            (idx, miny) = find_min(permutation[1:])
-            print("idx=%d, miny=%d" % (idx+1, miny))
+            (idx, miny) = find_next(first, permutation[1:])
             swapped = swap(permutation, 0, idx+1)
-            return [swapped[0]] + next_permutation(swapped[1:])
+            return [swapped[0]] + sorted(swapped[1:])
         else:
             return [first] + next_permutation(permutation[1:])
         
+print(next_permutation([1,2,3]))
 print(next_permutation([1,3,2]))
-# print(next_permutation([1,3,2]))
+print(next_permutation([2,3,1]))
+print(next_permutation([3,2,1]))
