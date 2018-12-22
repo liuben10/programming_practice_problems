@@ -134,3 +134,11 @@ testm = [
 ]
 
 test_case(testm)
+
+
+testm = [
+    [1, 2, 3],
+    [1, 2, 4]
+]
+
+test_case(testm)
